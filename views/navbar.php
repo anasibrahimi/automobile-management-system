@@ -12,6 +12,7 @@
             <div class="flex space-x-4">
                 <a href="../public/index.php?action=list" class="text-white text-lg font-bold">Afficher Voiture</a>
                 <a href="../public/client.php?action=listClients" class="text-white text-lg font-bold">Afficher Client</a>
+                <a href="../public/auth.php?action=logout" class="text-white text-lg font-bold">Logout</a>
             </div>
         </div>
     </nav>

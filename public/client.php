@@ -1,5 +1,12 @@
 <?php
 require_once '../controllers/ClientController.php';
+require_once '../controllers/AuthController.php';
+
+// Authentication check
+if (!AuthController::isAuthenticated()) {
+    header('Location: ../views/login.php');
+    exit();
+}
 
 $controller = new ClientController();
 
