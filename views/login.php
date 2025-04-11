@@ -24,9 +24,6 @@
                 <input type="password" id="password" name="password" class="w-full px-4 py-2 border rounded" required>
             </div>
             <button type="submit" class="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Login</button>
-            <p class="text-center text-gray-600 mt-4">
-                Don't have an account? <a href="../views/user/add.php" class="text-blue-500 hover:underline">Create Account</a>
-            </p>
         </form>
     </div>
 </body>

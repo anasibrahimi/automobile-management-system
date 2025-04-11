@@ -14,10 +14,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
                 break;
             case 'createUser':
-                if (isset($_POST['username']) && isset($_POST['password'])) {
-                    $authController->createUser($_POST['username'], $_POST['password']);
+                if ($authController->isAuthenticated()) { // Check if authenticated
+                    if (isset($_POST['username']) && isset($_POST['password'])) {
+                        $authController->createUser($_POST['username'], $_POST['password']);
+                    } else {
+                        echo "Error: Missing username or password.";
+                    }
                 } else {
-                    echo "Error: Missing username or password.";
+                    header('Location: ../views/login.php');
                 }
                 break;
             default:
