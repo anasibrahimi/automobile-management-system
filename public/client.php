@@ -1,10 +1,10 @@
 <?php
-require_once '../controllers/ClientController.php';
-require_once '../controllers/AuthController.php';
+require_once '../vendor/autoload.php';
 
 // Authentication check
 if (!AuthController::isAuthenticated()) {
-    header('Location: ../views/login.php');
+    $auth = new AuthController();
+    $auth->redirectToLogin();
     exit();
 }
 

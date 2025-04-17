@@ -1,4 +1,4 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/automobile/views/navbar.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

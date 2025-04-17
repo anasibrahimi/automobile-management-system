@@ -1,5 +1,5 @@
 <?php
-require_once '../models/User.php';
+require_once '../vendor/autoload.php';
 
 class AuthController {
     // Handle user login
@@ -19,7 +19,7 @@ class AuthController {
     public function logout() {
         session_start();
         session_destroy();
-        header('Location: ../views/login.php');
+        require_once '../views/login.php';
         exit();
     }
 
@@ -50,6 +50,16 @@ class AuthController {
         $user = new User(null, $username, $hashedPassword);
         $user->create();
         $this->redirectToLogin('User created successfully. Please log in.');
+    }
+
+    // Render the add user view
+    public function addUserView() {
+        session_start();
+        if (!isset($_SESSION['user_id'])) {
+            $this->redirectToLogin('You must be logged in to access this page.');
+        }
+        require_once '../views/user/add.php';
+        exit();
     }
 }
 ?>

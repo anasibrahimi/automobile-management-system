@@ -1,5 +1,5 @@
 <?php
-require_once '../models/Client.php';
+require_once '../vendor/autoload.php';
 
 class ClientController {
     // Create a new client

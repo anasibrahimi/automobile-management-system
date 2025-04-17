@@ -12,7 +12,7 @@
             <div class="flex space-x-4">
                 <a href="../public/index.php?action=list" class="text-gray-800 text-lg font-semibold hover:text-blue-500">Afficher Voiture</a>
                 <a href="../public/client.php?action=listClients" class="text-gray-800 text-lg font-semibold hover:text-blue-500">Afficher Client</a>
-                <a href="../views/user/add.php" class="text-gray-800 text-lg font-semibold hover:text-blue-500">Add User</a>
+                <a href="../public/auth.php?action=add" class="text-gray-800 text-lg font-semibold hover:text-blue-500">Add User</a>
                 <a href="../public/auth.php?action=logout" class="text-gray-800 text-lg font-semibold hover:text-blue-500">Logout</a>
             </div>
         </div>

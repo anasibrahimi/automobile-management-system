@@ -1,5 +1,5 @@
 <?php
-require_once '../controllers/AuthController.php';
+require_once '../vendor/autoload.php';
 
 $authController = new AuthController();
 
@@ -21,7 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         echo "Error: Missing username or password.";
                     }
                 } else {
-                    header('Location: ../views/login.php');
+                        $auth = new AuthController();
+                        $auth->redirectToLogin();
+                        exit();
                 }
                 break;
             default:
@@ -38,6 +40,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 break;
             case 'login':
                 $authController->redirectToLogin(); // Assuming this method exists to display the login form
+                break;
+            case 'add':
+                $authController->addUserView();
                 break;
             default:
                 echo "Error: Unknown action.";

@@ -1,6 +1,5 @@
 <?php
-require_once '../models/Voiture.php';
-require_once '../models/Client.php';
+require_once '../vendor/autoload.php';
 
 class VoitureController {
     // Create a new voiture
