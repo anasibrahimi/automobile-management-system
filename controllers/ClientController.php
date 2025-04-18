@@ -1,12 +1,12 @@
 <?php
-require_once '../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 class ClientController {
     // Create a new client
     public function createClient($name, $phone) {
         $client = new Client(null, $name, $phone);
         $client->create();
-        header('Location: ../public/client.php?action=listClients');
+        header('Location: /automobile/clients');
         return $client;
     }
 
@@ -17,7 +17,7 @@ class ClientController {
             $client->setName($name);
             $client->setPhone($phone);
             $client->update();
-            header('Location: ../public/client.php?action=listClients');
+            header('Location: /automobile/clients');
             return $client;
         }
         return null;
@@ -28,7 +28,7 @@ class ClientController {
         $client = Client::findById($id);
         if ($client) {
             $client->delete();
-            header('Location: ../public/client.php?action=listClients');
+            header('Location: /automobile/clients');
             exit();
         }
         return false;
@@ -36,7 +36,7 @@ class ClientController {
 
     // Redirect to the add view
     public function addView() {
-        require_once '../views/client/add.php';
+        require_once __DIR__ . '/../views/client/add.php';
         exit();
     }
 
@@ -44,9 +44,9 @@ class ClientController {
     public function updateView($id) {
         $client = Client::findById($id);
         if ($client) {
-            require_once '../views/client/update.php';
+            require_once __DIR__ . '/../views/client/update.php';
         } else {
-            header('Location: ../public/index.php?action=error&message=Client%20not%20found');
+            header('Location: ?action=error&message=Client%20not%20found');
             exit();
         }
     }
@@ -55,9 +55,9 @@ class ClientController {
     public function deleteView($id) {
         $client = Client::findById($id);
         if ($client) {
-            require_once '../views/client/delete.php';
+            require_once __DIR__ . '/../views/client/delete.php';
         } else {
-            header('Location: ../public/index.php?action=error&message=Client%20not%20found');
+            header('Location: ?action=error&message=Client%20not%20found');
             exit();
         }
     }
@@ -65,7 +65,7 @@ class ClientController {
     // Redirect to the list view
     public function listClients() {
         $clients = Client::findAll();
-        require_once '../views/client/list.php';
+        require_once __DIR__ . '/../views/client/list.php';
         exit();
     }
 }

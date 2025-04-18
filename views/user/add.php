@@ -11,8 +11,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/automobile/views/navbar.php'; ?>
 <body class="bg-gray-100">
     <div class="container mx-auto mt-10">
         <h1 class="text-3xl font-bold text-center mb-5">Add User</h1>
-        <form method="POST" class="bg-white p-6 rounded shadow-md" action="../../public/auth.php?action=createUser">
-            <input type="hidden" name="action" value="createUser">
+        <form method="POST" class="bg-white p-6 rounded shadow-md" action="/automobile/users/create">
             <div class="mb-4">
                 <label for="username" class="block text-gray-700">Username</label>
                 <input type="text" id="username" name="username" class="w-full px-4 py-2 border rounded" required>

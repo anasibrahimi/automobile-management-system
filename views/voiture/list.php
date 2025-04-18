@@ -12,7 +12,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/automobile/views/navbar.php'; ?>
     <div class="container mx-auto mt-10">
         <h1 class="text-3xl font-bold text-center mb-5">List of Voitures</h1>
         <div class="flex justify-end mb-5">
-            <a href="../public/index.php?action=add" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add Voiture</a>
+            <a href="/automobile/voitures/add" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add Voiture</a>
              </div>
         <table class="table-auto w-full bg-white shadow-md rounded-lg">
             <thead>
@@ -36,8 +36,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/automobile/views/navbar.php'; ?>
                         <td class="px-4 py-2 text-center"><?php echo htmlspecialchars($voiture->getPrix()); ?> $</td>
                         <td class="px-4 py-2 text-center"><?php echo htmlspecialchars($clientName ?? 'N/A'); ?></td>
                         <td class="px-4 py-2 text-center">
-                            <a href="../public/index.php?action=edit&id=<?php echo $voiture->getId(); ?>" class="bg-yellow-500 text-white px-2 py-1 rounded hover:bg-yellow-600">Modify</a>
-                            <a href="../public/index.php?action=delete&id=<?php echo $voiture->getId(); ?>" class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">Delete</a>
+                            <a href="/automobile/voitures/edit/<?php echo $voiture->getId(); ?>" class="bg-yellow-500 text-white px-2 py-1 rounded hover:bg-yellow-600">Modify</a>
+                            <a href="/automobile/voitures/delete/<?php echo $voiture->getId(); ?>" class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">Delete</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

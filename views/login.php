@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +11,10 @@
         <h1 class="text-2xl font-bold text-center mb-6">Login</h1>
         <?php if (isset($_GET['error'])): ?>
             <div class="bg-red-100 text-red-700 p-3 rounded mb-4">
-                <?php echo htmlspecialchars($_GET['error']); ?>
+                <?php echo htmlspecialchars(urldecode($_GET['error'])); ?>
             </div>
         <?php endif; ?>
-        <form method="POST" action="../public/auth.php?action=login" class="space-y-4">
+        <form method="POST" action="/automobile/login" class="space-y-4">
             <div>
                 <label for="username" class="block text-gray-700">Username</label>
                 <input type="text" id="username" name="username" class="w-full px-4 py-2 border rounded" required>

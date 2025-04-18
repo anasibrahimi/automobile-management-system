@@ -1,12 +1,12 @@
 <?php
-require_once '../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 class VoitureController {
     // Create a new voiture
     public function createVoiture($modele, $prix, $clientId) {
         $voiture = new Voiture(null, $modele, $prix, $clientId);
         $voiture->create();
-        header('Location: ../public/index.php?action=list');
+        header('Location: /automobile/voitures/list');
         return $voiture;
     }
 
@@ -18,7 +18,7 @@ class VoitureController {
             $voiture->setPrix($prix);
             $voiture->setClientId($clientId);
             $voiture->update();
-            header('Location: ../public/index.php?action=list');
+            header('Location: /automobile/voitures/list');
             return $voiture;
         }
         return null;
@@ -29,7 +29,7 @@ class VoitureController {
         $voiture = Voiture::findById($id);
         if ($voiture) {
             $voiture->delete();
-            header('Location: ../public/index.php?action=list');
+            header('Location: /automobile/voitures/list');
             exit();
         }
         return false;
@@ -38,7 +38,7 @@ class VoitureController {
     // Redirect to the add view
     public function addView() {
         $clients = Client::findAll(); // Fetch all clients
-        require_once '../views/voiture/add.php';
+        require_once __DIR__ . '/../views/voiture/add.php';
         exit();
     }
 
@@ -46,21 +46,21 @@ class VoitureController {
     public function updateView($id) {
         $voiture = Voiture::findById($id);
         $clients = Client::findAll(); // Fetch all clients
-        require_once '../views/voiture/update.php';
+        require_once __DIR__ . '/../views/voiture/update.php';
         exit();
     }
 
     // Redirect to the delete view
     public function deleteView($id) {
         $voiture = Voiture::findById($id);
-        require_once '../views/voiture/delete.php';
+        require_once __DIR__ . '/../views/voiture/delete.php';
         exit();
     }
 
     // Redirect to the list view
     public function listVoitures() {
         $voitures = Voiture::findAll();
-        require_once '../views/voiture/list.php';
+        require_once __DIR__ . '/../views/voiture/list.php'; // Corrected path
         exit();
     }
 }

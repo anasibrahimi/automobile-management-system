@@ -12,7 +12,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/automobile/views/navbar.php'; ?>
     <div class="container mx-auto mt-10">
         <h1 class="text-3xl font-bold text-center mb-5">List of Clients</h1>
         <div class="flex justify-end mb-5">
-            <a href="../public/client.php?action=addClient" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add Client</a>
+            <a href="/automobile/clients/add" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add Client</a>
         </div>
         <table class="table-auto w-full bg-white shadow-md rounded-lg">
             <thead>
@@ -30,8 +30,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/automobile/views/navbar.php'; ?>
                         <td class="px-4 py-2 text-center"><?php echo htmlspecialchars($client->getName()); ?></td>
                         <td class="px-4 py-2 text-center"><?php echo htmlspecialchars($client->getPhone()); ?></td>
                         <td class="px-4 py-2 text-center">
-                            <a href="../public/client.php?action=editClient&id=<?php echo $client->getId(); ?>" class="bg-yellow-500 text-white px-2 py-1 rounded hover:bg-yellow-600">Modify</a>
-                            <a href="../public/client.php?action=deleteClient&id=<?php echo $client->getId(); ?>" class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">Delete</a>
+                            <a href="/automobile/clients/edit/<?php echo $client->getId(); ?>" class="bg-yellow-500 text-white px-2 py-1 rounded hover:bg-yellow-600">Modify</a>
+                            <a href="/automobile/clients/delete/<?php echo $client->getId(); ?>" class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">Delete</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

@@ -10,8 +10,7 @@
 <body class="bg-gray-100">
     <div class="container mx-auto mt-10">
         <h1 class="text-3xl font-bold text-center mb-5">Update Client</h1>
-        <form method="POST" class="bg-white p-6 rounded shadow-md" action="../public/client.php?action=updateClient">
-            <input type="hidden" name="action" value="updateClient">
+        <form method="POST" class="bg-white p-6 rounded shadow-md" action="/automobile/clients/update">
             <input type="hidden" name="id" value="<?php echo htmlspecialchars($client->getId()); ?>">
             <div class="mb-4">
                 <label for="name" class="block text-gray-700">Name</label>

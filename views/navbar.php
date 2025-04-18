@@ -10,10 +10,10 @@
         <div class="container mx-auto flex justify-between items-center">
             <a href="../public/index.php?action=list" class="text-gray-800 text-lg font-bold">Logo</a>
             <div class="flex space-x-4">
-                <a href="../public/index.php?action=list" class="text-gray-800 text-lg font-semibold hover:text-blue-500">Afficher Voiture</a>
-                <a href="../public/client.php?action=listClients" class="text-gray-800 text-lg font-semibold hover:text-blue-500">Afficher Client</a>
-                <a href="../public/auth.php?action=add" class="text-gray-800 text-lg font-semibold hover:text-blue-500">Add User</a>
-                <a href="../public/auth.php?action=logout" class="text-gray-800 text-lg font-semibold hover:text-blue-500">Logout</a>
+                <a href="/automobile/voitures/list" class="text-gray-800 text-lg font-semibold hover:text-blue-500">Afficher Voiture</a>
+                <a href="/automobile/clients/" class="text-gray-800 text-lg font-semibold hover:text-blue-500">Afficher Client</a>
+                <a href="/automobile/users/add" class="text-gray-800 text-lg font-semibold hover:text-blue-500">Add User</a>
+                <a href="/automobile/logout" class="text-gray-800 text-lg font-semibold hover:text-blue-500">Logout</a>
             </div>
         </div>
     </nav>

@@ -1,14 +1,16 @@
 <?php
-require_once '../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 class AuthController {
-    // Handle user login
-    public function login($username, $password) {
+     // Handle user login
+     public function login($username, $password) {
         $user = User::findByUsername($username);
         if ($user && password_verify($password, $user->getPassword())) {
-            session_start();
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
+            }
             $_SESSION['user_id'] = $user->getId();
-            header('Location: ../public/index.php?action=list');
+            header('Location: /automobile/voitures/list');
             exit();
         } else {
             $this->redirectToLogin('Invalid credentials ');
@@ -17,25 +19,32 @@ class AuthController {
 
     // Handle user logout
     public function logout() {
-        session_start();
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
         session_destroy();
-        require_once '../views/login.php';
+        require_once __DIR__ . '/../views/login.php'; // Corrected path
         exit();
     }
 
     // Check if a user is authenticated
     public static function isAuthenticated() {
-        session_start();
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
         return isset($_SESSION['user_id']);
     }
 
     // Redirect to the login view
     public function redirectToLogin($error = null) {
-        $location = '../views/login.php';
-        if ($error) {
-            $location .= '?error=' . urlencode($error);
+        if (is_array($error)) {
+            $error = null; // Handle route calls with no parameters
         }
-        header('Location: ' . $location);
+        if ($error) {
+            header('Location: ./views/login.php?error=' . urlencode($error));
+        } else {
+            require_once __DIR__ . '/../views/login.php';
+        }
         exit();
     }
 
@@ -54,11 +63,13 @@ class AuthController {
 
     // Render the add user view
     public function addUserView() {
-        session_start();
-        if (!isset($_SESSION['user_id'])) {
-            $this->redirectToLogin('You must be logged in to access this page.');
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
         }
-        require_once '../views/user/add.php';
+        // if (!isset($_SESSION['user_id'])) {
+        //     $this->redirectToLogin('You must be logged in to access this page.');
+        // }
+        require_once __DIR__ . '/../views/user/add.php';
         exit();
     }
 }
